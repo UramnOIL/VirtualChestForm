@@ -5,25 +5,12 @@ namespace UramnOIL\VirtualChestForm\Controller;
 
 
 use pocketmine\Player;
-use UramnOIL\VirtualChestForm\Form\FormFactory;
 use UramnOIL\VirtualChestForm\Inventory\TrashBoxInventory;
-use uramnoil\virtualinventory\VirtualInventoryAPI;
 
-class EntryController implements Controller {
+class EntryController extends Controller {
 	public const OPEN_CHEST = 0;
 	public const OPEN_TRASH_BOX = 1;
 	public const CUSTOMIZE_CHESTS = 2;
-
-	/** @var VirtualInventoryAPI */
-	private $api;
-
-	/** @var FormFactory */
-	private $factory;
-
-	public function __construct(VirtualInventoryAPI $api) {
-		$this->api = $api;
-		$this->factory = new FormFactory();
-	}
 
 	/**
 	 * @param  Player  $player
