@@ -6,10 +6,14 @@ namespace UramnOIL\VirtualChestForm\Command;
 
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
-use pocketmine\plugin\Plugin;
+use pocketmine\Player;
+use UramnOIL\VirtualChestForm\VirtualChestFormPlugin;
 
-class OpenFormCommand extends PluginCommand {
-	public function __construct(Plugin $owner) {
+class EntryFormCommand extends PluginCommand {
+	protected $factory;
+
+	public function __construct(VirtualChestFormPlugin $owner) {
+		$this->factory = $owner->getFormFactory();
 		$name = 'virtualchestform';
 		parent::__construct($name, $owner);
 		$this->setAliases(['vc', 'vcf']);
@@ -18,5 +22,8 @@ class OpenFormCommand extends PluginCommand {
 
 	public function execute(CommandSender $sender, string $commandLabel, array $args) {
 		$this->testPermission($sender);
+		if($sender instanceof Player) {
+			$sender->sendForm($this->factory->createEntryForm());
+		}
 	}
 }
