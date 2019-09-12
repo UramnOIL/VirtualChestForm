@@ -11,16 +11,13 @@ use UramnOIL\VirtualChestForm\Controller\VirtualChestEntryController;
 use UramnOIL\VirtualChestForm\Form\Button\EntryButton;
 
 class VirtualChestEntryForm extends MenuForm {
-	public const BUTTON_QUIT = 0;
-	public const BUTTON_OPEN_CHEST = 1;
-	public const BUTTON_CUSTOMIZE_CHESTS = 2;
 
 	public function __construct(VirtualChestEntryController $controller) {
 		$title = "VirtualChestForm";
 		$content = "";
 		$buttons = [
-			new EntryButton(self::BUTTON_OPEN_CHEST, "チェストを開く"),
-			new EntryButton(self::BUTTON_CUSTOMIZE_CHESTS, "カスタマイズ"),
+			new EntryButton(VirtualChestEntryController::OPEN_CHEST, "チェストを開く"),
+			new EntryButton(VirtualChestEntryController::CUSTOMIZE_CHESTS, "カスタマイズ"),
 		];
 
 		$onSubmit = function(Player $player, Button $button) use ($controller) : void {
