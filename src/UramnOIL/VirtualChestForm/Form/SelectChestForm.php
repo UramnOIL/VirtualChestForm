@@ -29,7 +29,7 @@ class SelectChestForm extends MenuForm {
 		$onClose = function(Player $player) use ($controller) : void {
 			$controller->onClose($player);
 		};
-		
+
 		parent::__construct($title, $content, $buttons, $onSubmit, $onClose);
 	}
 }
