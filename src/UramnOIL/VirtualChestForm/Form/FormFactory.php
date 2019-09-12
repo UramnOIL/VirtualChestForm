@@ -4,15 +4,28 @@
 namespace UramnOIL\VirtualChestForm\Form;
 
 
-use UramnOIL\VirtualChestForm\Controller\SelectChestController;
-use UramnOIL\VirtualChestForm\Controller\VirtualChestEntryController;
+use pocketmine\Server;
+use UramnOIL\VirtualChestForm\Controller\EntryController;
+use UramnOIL\VirtualChestForm\Controller\SelectChestToCustomizeController;
+use UramnOIL\VirtualChestForm\Controller\SelectChestToOpenController;
+use uramnoil\virtualinventory\VirtualInventoryAPI;
+use uramnoil\virtualinventory\VirtualInventoryPlugin;
 
 class FormFactory {
+	/** @var VirtualInventoryAPI */
+	private $api;
+
+	public function __construct() {
+		/** @var VirtualInventoryPlugin $plugin */
+		$plugin = Server::getInstance()->getPluginManager()->getPlugin('VirtualInventoryPlugin');
+		$this->api = $plugin->getAPI();
+	}
+
 	/**
-	 * @return VirtualChestEntryForm
+	 * @return EntryForm
 	 */
-	public function createVirtualChestEntryForm() : VirtualChestEntryForm {
-		return new VirtualChestEntryForm(new VirtualChestEntryController());
+	public function createEntryForm() : EntryForm {
+		return new EntryForm(new EntryController($this->api));
 	}
 
 	/**
@@ -20,7 +33,16 @@ class FormFactory {
 	 *
 	 * @return SelectChestForm
 	 */
-	public function createSelectChestForm(array $chests) : SelectChestForm {
-		return new SelectChestForm($chests, new SelectChestController());
+	public function createSelectChestToOpenForm(array $chests) : SelectChestForm {
+		return new SelectChestForm($chests, new SelectChestToOpenController($this->api));
+	}
+
+	/**
+	 * @param  array  $chests
+	 *
+	 * @return SelectChestForm
+	 */
+	public function createSelectChestToCustomizeForm(array $chests) : SelectChestForm {
+		return new SelectChestForm($chests, new SelectChestToCustomizeController($this->api));
 	}
 }
