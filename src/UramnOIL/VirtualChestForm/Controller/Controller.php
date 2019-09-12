@@ -4,6 +4,8 @@
 namespace UramnOIL\VirtualChestForm\Controller;
 
 
-interface Controller {
+use uramnoil\virtualinventory\VirtualInventoryAPI;
 
+interface Controller {
+	public function __construct(VirtualInventoryAPI $api);
 }
