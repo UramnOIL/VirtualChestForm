@@ -2,3 +2,11 @@
   main: UramnOIL\VirtualChestForm\VirtualChestFormPlugin
   version: 0.1
   api: [3.0.0]
+
+  permissions:
+    virtualchestform:
+      default: true
+      children:
+        virtualchestform.command:
+          children:
+            virtualchestform.command.openform:
