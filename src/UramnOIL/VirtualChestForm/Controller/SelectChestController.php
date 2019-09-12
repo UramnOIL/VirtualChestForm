@@ -5,15 +5,19 @@ namespace UramnOIL\VirtualChestForm\Controller;
 
 
 use pocketmine\Player;
-use UramnOIL\VirtualChestForm\Form\VirtualChestEntryForm;
 use uramnoil\virtualinventory\inventory\VirtualChestInventory;
 
-class SelectChestController {
-	public function onSubmit(Player $player, VirtualChestInventory $chest) : void {
-		$player->addWindow($chest);
-	}
+interface SelectChestController extends Controller {
+	/**
+	 * @param  Player  $player
+	 * @param  VirtualChestInventory  $chest
+	 *
+	 * @return mixed
+	 */
+	public function onSubmit(Player $player, VirtualChestInventory $chest);
 
-	public function onClose(Player $player) : void {
-		$player->sendForm(new VirtualChestEntryForm());
-	}
+	/**
+	 * @param  Player  $player
+	 */
+	public function onClose(Player $player) : void;
 }
