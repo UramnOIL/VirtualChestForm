@@ -1,4 +1,4 @@
   name:　VirtualChestForm
-  main: uramnoil\virtualchestform\VirtualChestFormPlugin
+  main: UramnOIL\VirtualChestForm\VirtualChestFormPlugin
   version: 0.1
   api: [3.0.0]
