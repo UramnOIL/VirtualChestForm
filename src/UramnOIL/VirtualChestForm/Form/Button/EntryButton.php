@@ -1,7 +1,7 @@
 <?php
 
 
-namespace UramnOIL\VirtualChestForm\Fomr\Button;
+namespace UramnOIL\VirtualChestForm\Form\Button;
 
 
 use Frago9876543210\EasyForms\elements\Button;
