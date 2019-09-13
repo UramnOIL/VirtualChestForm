@@ -6,7 +6,7 @@ namespace UramnOIL\VirtualChestForm\Form\Button;
 
 use uramnoil\virtualinventory\inventory\VirtualChestInventory;
 
-class ChesButton {
+class ChestButton {
 	/** @var VirtualChestInventory */
 	private $chest;
 
