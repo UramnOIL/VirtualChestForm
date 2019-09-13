@@ -27,9 +27,7 @@ class EntryController extends Controller {
 				$player->addWindow(new TrashCanInventory());
 				break;
 			case self::COMMAND_CUSTOMIZE_CHESTS:
-				$this->api->findByOwner($player, function(array $inventories) use ($player) : void {
-					$player->sendForm($this->factory->createSelectChestToCustomizeForm($inventories));
-				});
+				$player->sendForm($this->factory->createCustomizeForm());
 				break;
 			default:
 				break;

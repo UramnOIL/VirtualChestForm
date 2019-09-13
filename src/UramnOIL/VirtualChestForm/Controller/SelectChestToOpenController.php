@@ -9,8 +9,8 @@ use uramnoil\virtualinventory\inventory\PerpetuatedVirtualInventory;
 
 class SelectChestToOpenController extends SelectChestController {
 
-	public function onSubmit(Player $player, PerpetuatedVirtualInventory $chest) : void {
-		$player->addWindow($chest);
+	public function onSubmit(Player $player, PerpetuatedVirtualInventory $inventory) : void {
+		$player->addWindow($inventory);
 	}
 
 	public function onClose(Player $player) : void {

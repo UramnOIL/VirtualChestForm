@@ -5,6 +5,7 @@ namespace UramnOIL\VirtualChestForm\Form;
 
 
 use UramnOIL\VirtualChestForm\Controller\CustomizeController;
+use UramnOIL\VirtualChestForm\Controller\DeleteController;
 use UramnOIL\VirtualChestForm\Controller\EntryController;
 use UramnOIL\VirtualChestForm\Controller\RenameController;
 use UramnOIL\VirtualChestForm\Controller\SelectChestToCustomizeController;
@@ -37,19 +38,37 @@ class FormFactory {
 	}
 
 	/**
-	 * @param  PerpetuatedVirtualInventory[]  $chests
+	 * @param  array  $chests
+	 * @param  int  $command
 	 *
 	 * @return SelectChestForm
 	 */
-	public function createSelectChestToCustomizeForm(array $chests) : SelectChestForm {
-		return new SelectChestForm($chests, new SelectChestToCustomizeController($this->api, $this));
+	public function createSelectChestToCustomizeForm(array $chests, int $command) : SelectChestForm {
+		return new SelectChestForm($chests, new SelectChestToCustomizeController($command, $this->api, $this));
 	}
 
-	public function createCustomizeForm(PerpetuatedVirtualInventory $chest) : CustomizeForm {
-		return new CustomizeForm($chest, new CustomizeController($this->api, $this));
+	/**
+	 * @return CustomizeForm
+	 */
+	public function createCustomizeForm() : CustomizeForm {
+		return new CustomizeForm(new CustomizeController($this->api, $this));
 	}
 
+	/**
+	 * @param  PerpetuatedVirtualInventory  $inventory
+	 *
+	 * @return RenameForm
+	 */
 	public function createRenameForm(PerpetuatedVirtualInventory $inventory) : RenameForm {
 		return new RenameForm($inventory, new RenameController($this->api, $this));
+	}
+
+	/**
+	 * @param  PerpetuatedVirtualInventory  $inventory
+	 *
+	 * @return DeleteForm
+	 */
+	public function createDeleteForm(PerpetuatedVirtualInventory $inventory) {
+		return new DeleteForm($inventory, new DeleteController($this->api, $this));
 	}
 }

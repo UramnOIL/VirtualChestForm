@@ -10,11 +10,13 @@ use uramnoil\virtualinventory\inventory\PerpetuatedVirtualInventory;
 abstract class SelectChestController extends Controller {
 	/**
 	 * @param  Player  $player
-	 * @param  PerpetuatedVirtualInventory  $chest
+	 * @param  PerpetuatedVirtualInventory  $inventory
 	 *
 	 * @return mixed
+	 * @see CustomizeController
+	 *
 	 */
-	public abstract function onSubmit(Player $player, PerpetuatedVirtualInventory $chest);
+	public abstract function onSubmit(Player $player, PerpetuatedVirtualInventory $inventory);
 
 	/**
 	 * @param  Player  $player
