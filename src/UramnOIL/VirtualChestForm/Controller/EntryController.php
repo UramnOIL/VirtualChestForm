@@ -8,9 +8,9 @@ use pocketmine\Player;
 use UramnOIL\VirtualChestForm\Inventory\TrashBoxInventory;
 
 class EntryController extends Controller {
-	public const OPEN_CHEST = 0;
-	public const OPEN_TRASH_BOX = 1;
-	public const CUSTOMIZE_CHESTS = 2;
+	public const COMMAND_OPEN_CHEST = 0;
+	public const COMMAND_OPEN_TRASH_CAN = 1;
+	public const COMMAND_CUSTOMIZE_CHESTS = 2;
 
 	/**
 	 * @param  Player  $player
@@ -18,15 +18,15 @@ class EntryController extends Controller {
 	 */
 	public function onSubmit(Player $player, int $selected) : void {
 		switch($selected) {
-			case self::OPEN_CHEST:
+			case self::COMMAND_OPEN_CHEST:
 				$this->api->findByOwner($player, function(array $inventories) use ($player) : void {
 					$player->sendForm($this->factory->createSelectChestToOpenForm($inventories));
 				});
 				break;
-			case self::OPEN_TRASH_BOX:
+			case self::COMMAND_OPEN_TRASH_CAN:
 				$player->addWindow(new TrashBoxInventory());
 				break;
-			case self::CUSTOMIZE_CHESTS:
+			case self::COMMAND_CUSTOMIZE_CHESTS:
 				$this->api->findByOwner($player, function(array $inventories) use ($player) : void {
 					$player->sendForm($this->factory->createSelectChestToCustomizeForm($inventories));
 				});
