@@ -3,10 +3,13 @@
   version: 0.1
   api: [3.0.0]
 
+  depend:
+    - VirtualInventory
+    - EasyForms
   permissions:
     virtualchestform:
-      default: true
       children:
         virtualchestform.command:
           children:
             virtualchestform.command.openform:
+              default: true
