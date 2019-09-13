@@ -7,7 +7,7 @@ namespace UramnOIL\VirtualChestForm\Inventory;
 use pocketmine\Player;
 use uramnoil\virtualinventory\inventory\VirtualDoubleChestInventory;
 
-class TrashBoxInventory extends VirtualDoubleChestInventory {
+class TrashCanInventory extends VirtualDoubleChestInventory {
 	public function onOpen(Player $who) : void {
 		if(count($this->getViewers()) >= 1) {
 			return;
