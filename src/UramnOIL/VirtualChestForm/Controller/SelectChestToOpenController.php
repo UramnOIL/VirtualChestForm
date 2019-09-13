@@ -5,11 +5,11 @@ namespace UramnOIL\VirtualChestForm\Controller;
 
 
 use pocketmine\Player;
-use uramnoil\virtualinventory\inventory\VirtualChestInventory;
+use uramnoil\virtualinventory\inventory\PerpetuatedVirtualInventory;
 
 class SelectChestToOpenController extends SelectChestController {
 
-	public function onSubmit(Player $player, VirtualChestInventory $chest) : void {
+	public function onSubmit(Player $player, PerpetuatedVirtualInventory $chest) : void {
 		$player->addWindow($chest);
 	}
 

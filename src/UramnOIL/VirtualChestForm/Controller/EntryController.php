@@ -5,7 +5,7 @@ namespace UramnOIL\VirtualChestForm\Controller;
 
 
 use pocketmine\Player;
-use UramnOIL\VirtualChestForm\Inventory\TrashBoxInventory;
+use UramnOIL\VirtualChestForm\Inventory\TrashCanInventory;
 
 class EntryController extends Controller {
 	public const COMMAND_OPEN_CHEST = 0;
@@ -24,7 +24,7 @@ class EntryController extends Controller {
 				});
 				break;
 			case self::COMMAND_OPEN_TRASH_CAN:
-				$player->addWindow(new TrashBoxInventory());
+				$player->addWindow(new TrashCanInventory());
 				break;
 			case self::COMMAND_CUSTOMIZE_CHESTS:
 				$this->api->findByOwner($player, function(array $inventories) use ($player) : void {

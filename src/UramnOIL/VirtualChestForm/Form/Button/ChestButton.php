@@ -4,20 +4,20 @@
 namespace UramnOIL\VirtualChestForm\Form\Button;
 
 
-use uramnoil\virtualinventory\inventory\VirtualChestInventory;
+use uramnoil\virtualinventory\inventory\PerpetuatedVirtualInventory;
 
 class ChestButton {
-	/** @var VirtualChestInventory */
+	/** @var PerpetuatedVirtualInventory */
 	private $chest;
 
-	public function __construct(VirtualChestInventory $chest) {
+	public function __construct(PerpetuatedVirtualInventory $chest) {
 		$this->chest = $chest;
 	}
 
 	/**
-	 * @return VirtualChestInventory
+	 * @return PerpetuatedVirtualInventory
 	 */
-	public function getChest() : VirtualChestInventory {
+	public function getChest() : PerpetuatedVirtualInventory {
 		return $this->chest;
 	}
 }
