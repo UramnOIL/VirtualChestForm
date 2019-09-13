@@ -16,15 +16,16 @@ class EntryForm extends MenuForm {
 		$title = "VirtualChestForm";
 		$content = "";
 		$buttons = [
-			new EntryButton(EntryController::OPEN_CHEST, "チェストを開く"),
-			new EntryButton(EntryController::CUSTOMIZE_CHESTS, "カスタマイズ"),
+			new EntryButton(EntryController::COMMAND_OPEN_CHEST, "チェストを開く"),
+			new EntryButton(EntryController::COMMAND_CUSTOMIZE_CHESTS, "カスタマイズ"),
+			new EntryButton(EntryController::COMMAND_OPEN_TRASH_CAN, "ゴミ箱を開く"),
 		];
 
 		$onSubmit = function(Player $player, Button $button) use ($controller) : void {
 			if(!$button instanceof EntryButton) {
 				throw new FormException();
 			}
-			$controller->onSubmit($player, $button->getId());
+			$controller->onSubmit($player, $button->getCommand());
 		};
 		$onClose = null;
 
