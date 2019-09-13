@@ -8,13 +8,14 @@ use Frago9876543210\EasyForms\elements\Button;
 use Frago9876543210\EasyForms\elements\Image;
 
 class EntryButton extends Button {
-	protected $id;
-	public function __construct(int $id, string $text, ?Image $image = null) {
-		$this->id = $id;
+	protected $command;
+
+	public function __construct(int $command, string $text, ?Image $image = null) {
+		$this->command = $command;
 		parent::__construct($text, $image);
 	}
 
-	public function getId() : int {
-		return $this->id;
+	public function getCommand() : int {
+		return $this->command;
 	}
 }
