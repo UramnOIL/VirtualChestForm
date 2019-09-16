@@ -14,7 +14,7 @@ class VirtualChestFormPlugin extends PluginBase {
 
 	public function onEnable() {
 		/** @var VirtualInventoryPlugin $plugin */
-		$plugin = Server::getInstance()->getPluginManager()->getPlugin('VirtualInventoryPlugin');
+		$plugin = Server::getInstance()->getPluginManager()->getPlugin('VirtualInventory');
 		$this->factory = new FormFactory($plugin->getAPI());
 		$this->getServer()->getCommandMap()->register("VirtualChestForm", new EntryFormCommand($this));
 	}
