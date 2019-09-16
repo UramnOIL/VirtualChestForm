@@ -1,15 +1,15 @@
-  name:　VirtualChestForm
-  main: UramnOIL\VirtualChestForm\VirtualChestFormPlugin
-  version: 0.1
-  api: [3.0.0]
+name: VirtualChestForm
+main: UramnOIL\VirtualChestForm\VirtualChestFormPlugin
+version: 0.1
+api: [3.0.0]
 
-  depend:
-    - VirtualInventory
-    - EasyForms
-  permissions:
-    virtualchestform:
-      children:
-        virtualchestform.command:
-          children:
-            virtualchestform.command.openform:
-              default: true
+depend:
+  - VirtualInventory
+  - EasyForms
+permissions:
+  virtualchestform:
+    children:
+      virtualchestform.command:
+        children:
+          virtualchestform.command.openform:
+            default: true
